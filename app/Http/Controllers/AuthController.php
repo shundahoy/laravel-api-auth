@@ -16,9 +16,9 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         try {
-            $name = $request->name;
+            $email = $request->email;
             $password = $request->password;
-            if (Auth::attempt(['name' => $name, 'password' => $password])) {
+            if (Auth::attempt(['email' => $email, 'password' => $password])) {
                 /** @var \App\Models\MyUserModel $user **/
                 $user = Auth::user();
                 $token = $user->createToken('app')->accessToken;
